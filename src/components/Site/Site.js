@@ -17,6 +17,9 @@ import Bounties from "../Bounties/Bounties";
 import Tutorial from "../Tutorial/Tutorial";
 import fundInfo from "../../data/fundInfo.json";
 
+import dummyFundInfo from "../../dummydata/dummydata.json"
+
+
 function Site({ selectorNetworks }) {
   const theme = useTheme();
   const { account } = useWallet();
@@ -93,15 +96,15 @@ function Site({ selectorNetworks }) {
       data.splice(19, 0, mask); */
       return data;
     };
-    /* const response = await axios({
-      url: "https://nftx.xyz/funds-data",
-      method: "get",
-    }); */
+    /*
     const response2 = await axios({
       url: "https://nftx.ethereumdb.com/v1/vaults/",
       method: "get",
     });
     const _fundsData = cleanFundsData(response2.data);
+    setFundsData(_fundsData);
+    */
+    const _fundsData = cleanFundsData(dummyFundInfo);
     setFundsData(_fundsData);
   };
 
@@ -132,6 +135,7 @@ function Site({ selectorNetworks }) {
   }, []);
 
   // check for balances
+
 
   return (
     <div css="position: relative; z-index: 1">
@@ -179,7 +183,7 @@ function Site({ selectorNetworks }) {
                     padding-left: 1px;
                     padding-right: 26px;
                   `}>
-                    {'TUTORIALS'}
+                    {'PRESALES'}
                     <div
                       css={`
                         display: inline-block;
@@ -212,7 +216,7 @@ function Site({ selectorNetworks }) {
                       padding-right: 26px;
                     `}
                   >
-                    DOCS
+                    SONGS
                     <div
                       css={`
                         display: inline-block;
@@ -245,7 +249,7 @@ function Site({ selectorNetworks }) {
                       padding-right: 26px;
                     `}
                   >
-                    Gallery
+                    ARTISTS
                     <div
                       css={`
                         display: inline-block;

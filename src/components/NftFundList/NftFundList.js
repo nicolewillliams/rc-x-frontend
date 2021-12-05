@@ -147,7 +147,7 @@ function NftFundList() {
 
   const entries = [
     {
-      ticker: "PUNK",
+      ticker: "SHAPE OF YOU",
       address: "0x9cea2eD9e47059260C97d697f82b8A14EfA61EA5",
       vaultId: 16,
       degree: 2,

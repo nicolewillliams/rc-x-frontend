@@ -14,6 +14,8 @@ import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { FavoriteFundsProvider } from "./contexts/FavoriteFundsContext";
 import { FavoriteNFTsProvider } from "./contexts/FavoriteNFTsContext";
 
+import Player from "./components/Player/Player"
+
 // import MainView from "./components/_archived/MainView/MainView";
 import Site from "./components/Site/Site";
 import GlobalPreferences from "./components/GlobalPreferences/GlobalPreferences";
@@ -30,6 +32,9 @@ const SELECTOR_NETWORKS = [
 function App() {
   const theme = useTheme();
   // const web3 = getWeb3(web3Providers.default);
+
+  const [songs] = useState([{title: "Song 1", artist: "Artist 1", img_src: "./src/assets/ShapeOfYou.png", src: "./src/assets/music/despacito_mp3.mp3", coin: "SNG"}, {title: "Song 2", artist: "Artist 2", img_src: "./src/assets/Despacito.jpeg", src: "./src/assets/music/despacito_mp3.mp3", coin: "SNG"}])
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
   return (
     <Spring
@@ -51,6 +56,11 @@ function App() {
           >
             <FavoriteFundsProvider>
               <FavoriteNFTsProvider>
+              <Player
+                currentSongIndex={currentSongIndex}
+                setCurrentSongIndex={setCurrentSongIndex}
+                songs={songs}
+              />
                 <Site selectorNetworks={SELECTOR_NETWORKS} />
                 <GlobalPreferences />
               </FavoriteNFTsProvider>
